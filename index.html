@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Welcome to Vue</title>
+  <script src="https://unpkg.com/vue"></script>
+</head>
+<body>
+  <div id="app">
+    <img v-if='showHeading' v-bind:src="imgUrl" alt="Vue logo">
+    <h1>{{ greeting }}</h1>
+
+    <ul>
+      <li v-for='person in people'>{{person}}</li>
+    </ul>
+    <input type="text" v-model='inputVal'>
+    <p>{{ inputVal }}</p>
+   <button v-on:click='alertMe'>Click Me</button>
+
+  </div>
+
+  <script>
+    var app = new Vue({
+      el: '#app',
+      data: {
+
+        showHeading: true,
+        people: ['Jim', 'Bob', 'Stacey'],
+        imgUrl: 'https://www.worldatlas.com/r/w728-h425-c728x425/upload/b8/98/20/640px-primo-piano-del-monte-bianco-al-lago-di-pietra-rossa.jpg',
+        inputVal: ''
+      },
+      methods: {
+        humanizeURL: function (url) {
+          return url
+            .replace(/^https?:\/\//, '')
+            .replace(/\/$/, '')
+        },
+        alertMe: function() {
+          alert('hello world')
+        }
+      }
+    })
+  </script>
+</body>
+</html>
